@@ -1,12 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 import App from "./App";
-
+import reportWebVitals from "./reportWebVitals";
 import { createGlobalStyle } from "styled-components";
 
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
-html, body, div, span, applet, object, iframe,
+  font-family: 'Source Sans Pro', sans-serif;
+  html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -69,10 +71,14 @@ a {
 }
 `;
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
     <GlobalStyle />
     <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
